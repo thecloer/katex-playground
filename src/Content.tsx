@@ -1,4 +1,8 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
+
+declare global {
+  function renderMathInElement(element: HTMLElement, options?: any): void;
+}
 
 export default function Content() {
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -6,7 +10,7 @@ export default function Content() {
   const onInputChange = () => {
     if (!(outputRef.current && inputRef.current)) return;
     outputRef.current.innerHTML = inputRef.current.value;
-    renderMathInElement(outputRef.current, {
+    renderMathInElement?.(outputRef.current, {
       delimiters: [
         { left: '$$', right: '$$', display: true },
         { left: '$', right: '$', display: false },
