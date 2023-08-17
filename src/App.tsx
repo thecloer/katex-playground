@@ -1,5 +1,11 @@
+import Header from './Header';
+
 function App() {
-  return <div>katex</div>;
+  return (
+    <div className='h-full flex flex-col'>
+      <Header />
+    </div>
+  );
 }
 
 export default App;
