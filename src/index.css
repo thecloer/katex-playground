@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  #root {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+  }
+}
+
+@layer components {
+  .bordered-box-container {
+    @apply relative flex;
+  }
+  .bordered-box-label {
+    @apply absolute left-2 top-1 bg-white px-1 capitalize tracking-wide;
+  }
+  .bordered-box {
+    @apply w-full my-4 rounded-md border-2 border-teal-500 px-4 py-6 outline-none;
+  }
+}
