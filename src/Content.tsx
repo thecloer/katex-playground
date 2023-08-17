@@ -22,7 +22,13 @@ export default function Content() {
         <label htmlFor='input-textarea' className='bordered-box-label'>
           input
         </label>
-        <textarea ref={inputRef} id='input-textarea' className='bordered-box tracking-wider' onChange={onInputChange} />
+        <textarea
+          ref={inputRef}
+          id='input-textarea'
+          placeholder='Write your math in KaTeX syntax here...'
+          className='bordered-box tracking-wider'
+          onChange={onInputChange}
+        />
       </section>
       <section className='bordered-box-container'>
         <label className='bordered-box-label'>output</label>
