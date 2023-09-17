@@ -1,11 +1,18 @@
-import Content from './Content';
-import Header from './Header';
+import Content from './components/Content';
+import Header from './components/Header';
+import Sidebar from './components/sidebar/Sidebar';
+import { KatexInputRefProvider } from './contexts/katexInputContext';
 
 function App() {
   return (
     <div className='h-full flex flex-col'>
       <Header />
-      <Content />
+      <div className='w-full grow relative'>
+        <KatexInputRefProvider>
+          <Content />
+          <Sidebar />
+        </KatexInputRefProvider>
+      </div>
     </div>
   );
 }

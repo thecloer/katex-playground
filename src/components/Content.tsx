@@ -1,15 +1,17 @@
-import { useRef } from 'react';
+import { useContext, useRef } from 'react';
+import { KatexInputContext } from '../contexts/katexInputContext';
 
 declare global {
-  function renderMathInElement(element: HTMLElement, options?: any): void;
+  function renderMathInElement(element: HTMLElement, options?: unknown): void;
 }
 
 export default function Content() {
-  const inputRef = useRef<HTMLTextAreaElement>(null);
+  const { katexInputRef } = useContext(KatexInputContext);
+  // const inputRef = useRef<HTMLTextAreaElement>(null);
   const outputRef = useRef<HTMLDivElement>(null);
   const onInputChange = () => {
-    if (!(outputRef.current && inputRef.current)) return;
-    outputRef.current.innerHTML = inputRef.current.value;
+    if (!(outputRef.current && katexInputRef.current)) return;
+    outputRef.current.innerHTML = katexInputRef.current.value;
     renderMathInElement?.(outputRef.current, {
       delimiters: [
         { left: '$$', right: '$$', display: true },
@@ -21,13 +23,13 @@ export default function Content() {
     });
   };
   return (
-    <main className='container mx-auto w-full grow grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 gap-3'>
+    <main className='container mx-auto h-full grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 gap-3'>
       <section className='bordered-box-container'>
         <label htmlFor='input-textarea' className='bordered-box-label'>
           input
         </label>
         <textarea
-          ref={inputRef}
+          ref={katexInputRef}
           id='input-textarea'
           placeholder='Write your math in KaTeX syntax here...'
           className='bordered-box tracking-wider'
