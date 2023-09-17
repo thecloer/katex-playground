@@ -15,7 +15,8 @@ const storageInitializer = () => {
   const raw = localStorage.getItem(KATEX_STORAGE_KEY);
   const dataFromLocalStorage = parseStringToStorageData(raw);
   const dataFromURI = getDataFromURI();
-  return updateLocalStorage([...dataFromURI, ...dataFromLocalStorage]);
+  const removedDuplicates = dataFromURI.filter((element) => !dataFromLocalStorage.some((e) => e.id === element.id));
+  return updateLocalStorage([...removedDuplicates, ...dataFromLocalStorage]);
 };
 
 type Storage = {

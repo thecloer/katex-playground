@@ -9,7 +9,7 @@ export default function Header() {
         throwOnError: false,
       });
     }
-  }, [titleRef.current]);
+  }, []);
   return (
     <header className='border-b-2'>
       <div className='container mx-auto px-4 my-6 flex items-center justify-between'>
