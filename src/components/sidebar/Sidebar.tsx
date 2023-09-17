@@ -2,7 +2,7 @@ import { useState } from 'react';
 import ToggleButton from './ToggleButton';
 import SaveButton from './SaveButton';
 import ItemList from './ItemList';
-import { StorageProvider } from '../../contexts/storageConext';
+import { StorageProvider } from '../../contexts/storageContext';
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
