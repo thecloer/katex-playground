@@ -7,7 +7,6 @@ declare global {
 
 export default function Content() {
   const { katexInputRef } = useContext(KatexInputContext);
-  // const inputRef = useRef<HTMLTextAreaElement>(null);
   const outputRef = useRef<HTMLDivElement>(null);
   const onInputChange = () => {
     if (!(outputRef.current && katexInputRef.current)) return;

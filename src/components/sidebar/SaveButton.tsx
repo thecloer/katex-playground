@@ -14,7 +14,7 @@ export default function SaveButton() {
   return (
     <button
       onClick={addItem}
-      className='flex items-center justify-center bg-teal-500 h-8 p-1 rounded-md tracking-wide text-white hover:bg-teal-600'
+      className='flex items-center justify-center text-sm capitalize bg-teal-500 h-8 py-1 px-2 rounded-md tracking-wide text-white hover:bg-teal-600'
     >
       save
     </button>

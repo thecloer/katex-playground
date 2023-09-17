@@ -1,6 +1,7 @@
-export default function CopyButton({ text }: { text: string }) {
-  const copyItem = () => navigator.clipboard.writeText(text);
+import { copyToClipboard } from '../../helper/webAPIs';
 
+export default function CopyButton({ text }: { text: string }) {
+  const copyItem = () => copyToClipboard(text);
   return (
     <button
       aria-label='Copy item'
