@@ -12,7 +12,7 @@ export default function Sidebar() {
   return (
     <>
       <aside
-        className={`absolute top-0 bottom-0 right-0 flex flex-col
+        className={`absolute top-0 bottom-0 right-0 flex flex-col overflow-hidden
         p-2 w-72 border-l-2 bg-gray-100 
         transition ease-in-out ${isOpen ? '' : 'translate-x-full'}`}
       >
