@@ -1,27 +1,21 @@
 import { createContext, PropsWithChildren, useState } from 'react';
 import { z } from 'zod';
+import { getDataFromURI, parseStringToStorageData, updateLocalStorage } from '../helper/helpers';
 
 const MAX_STORAGE_SIZE = 100;
-const KATEX_STORAGE_KEY = 'cloer-katex-playground';
+export const KATEX_STORAGE_KEY = 'cloer-katex-playground';
 
-const StorageItemSchema = z.object({
+export const StorageItemSchema = z.object({
   id: z.string(),
   data: z.string(),
 });
 export type StorageItem = z.infer<typeof StorageItemSchema>;
 
-const cacheInitializer = () => {
+const storageInitializer = () => {
   const raw = localStorage.getItem(KATEX_STORAGE_KEY);
-  if (raw) {
-    const parsed = JSON.parse(raw);
-    if (Array.isArray(parsed)) {
-      return parsed.reduce((acc: StorageItem[], element) => {
-        const parsedItem = StorageItemSchema.safeParse(element);
-        return parsedItem.success ? [...acc, parsedItem.data] : acc;
-      }, []);
-    }
-  }
-  return [];
+  const dataFromLocalStorage = parseStringToStorageData(raw);
+  const dataFromURI = getDataFromURI();
+  return updateLocalStorage([...dataFromURI, ...dataFromLocalStorage]);
 };
 
 type Storage = {
@@ -34,12 +28,7 @@ const initStorage: Storage = { get: () => [], set: () => {}, isFull: () => false
 export const StorageContext = createContext<Storage>(initStorage);
 
 export function StorageProvider({ children }: PropsWithChildren) {
-  const [cache, setCache] = useState<StorageItem[]>(cacheInitializer);
-
-  const updateLocalStorage = (cache: StorageItem[]) => {
-    localStorage.setItem(KATEX_STORAGE_KEY, JSON.stringify(cache));
-    return cache;
-  };
+  const [cache, setCache] = useState<StorageItem[]>(storageInitializer);
 
   const isFull = () => cache.length >= MAX_STORAGE_SIZE;
   const get = () => cache;

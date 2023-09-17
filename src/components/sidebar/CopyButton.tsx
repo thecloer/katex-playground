@@ -1,4 +1,4 @@
-import { copyToClipboard } from '../../helper/webAPIs';
+import { copyToClipboard } from '../../helper/helpers';
 
 export default function CopyButton({ text }: { text: string }) {
   const copyItem = () => copyToClipboard(text);
