@@ -1,9 +1,7 @@
 import { createContext, PropsWithChildren, useState } from 'react';
 import { z } from 'zod';
 import { getDataFromURI, parseStringToStorageData, updateLocalStorage } from '../helper/helpers';
-
-const MAX_STORAGE_SIZE = 200;
-export const KATEX_STORAGE_KEY = 'cloer-katex-playground';
+import { KATEX_STORAGE_KEY, MAX_STORAGE_SIZE } from '../settings/config';
 
 export const StorageItemSchema = z.object({
   id: z.string(),
