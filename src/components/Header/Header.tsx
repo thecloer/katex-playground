@@ -15,11 +15,18 @@ export default function Header() {
       <div className='container mx-auto px-4 my-6 flex items-center justify-between'>
         <div className='flex gap-2'>
           <span ref={titleRef} className='text-4xl' />
-          <a href='https://github.com/thecloer' className='self-end text-sm text-gray-500 hover:text-teal-700'>
+          <a href='https://github.com/thecloer' className='self-end text-sm text-gray-500 hover:text-teal-700' target='_blank'>
             &copy;thecloer
           </a>
         </div>
-        <div>
+        <div className='flex gap-12'>
+          <a
+            href='https://cloer.tistory.com/111'
+            target='_blank'
+            className='text-xl font-semibold text-gray-700 hover:text-teal-600'
+          >
+            Blog
+          </a>
           <a
             href='https://katex.org/docs/supported'
             target='_blank'
