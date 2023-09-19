@@ -9,7 +9,11 @@ export const NAVIGATION_LINKS = [
     url: 'https://cloer.tistory.com/111',
   },
   {
-    text: 'Docs',
+    text: 'README',
+    url: 'https://github.com/thecloer/katex-playground',
+  },
+  {
+    text: 'KaTeX Docs',
     url: 'https://katex.org/docs/supported',
   },
 ];
