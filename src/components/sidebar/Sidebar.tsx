@@ -23,7 +23,7 @@ export default function Sidebar() {
     };
 
     document.addEventListener('mousemove', resize);
-    document.addEventListener('mouseup', () => document.removeEventListener('mousemove', resize));
+    document.addEventListener('mouseup', () => document.removeEventListener('mousemove', resize), { once: true });
   };
 
   return (
