@@ -7,7 +7,7 @@ function App() {
   return (
     <div className='h-full flex flex-col'>
       <Header />
-      <div className='w-full grow relative'>
+      <div className='w-full grow relative overflow-hidden'>
         <KatexInputRefProvider>
           <Content />
           <Sidebar />
