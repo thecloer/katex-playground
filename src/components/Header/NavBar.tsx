@@ -5,7 +5,7 @@ export default function NavBar() {
   return (
     <div className='flex gap-12'>
       {NAVIGATION_LINKS.map((link) => (
-        <NavLink {...link} />
+        <NavLink key={link.text} {...link} />
       ))}
     </div>
   );
