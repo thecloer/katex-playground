@@ -37,7 +37,7 @@ export default function Content() {
       </section>
       <section className='bordered-box-container'>
         <label className='bordered-box-label'>output</label>
-        <div ref={outputRef} className='bordered-box' />
+        <div ref={outputRef} className='bordered-box overflow-y-scroll' />
       </section>
     </main>
   );
